@@ -1,60 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.8.0 on win32)" generated="2025-03-04T21:26:49.086241" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.8.0 on win32)" generated="2025-03-04T22:44:08.518089" rpa="false" schemaversion="5">
 <suite id="s1" name="Advanced-Robot" source="C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot">
-<suite id="s1-s1" name="Operating System" source="C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\operating_system.robot">
-<test id="s1-s1-t1" name="Exemplo 04: Excluindo arquivos" line="17">
-<kw name="Listando arquivos do meu diretório">
-<kw name="List Directory" owner="OperatingSystem">
-<msg time="2025-03-04T21:26:49.118524" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files&lt;/a&gt;'.</msg>
-<msg time="2025-03-04T21:26:49.119619" level="INFO">3 items:
-arquivo_JSON.json
-arquivo_PDF.pdf
-arquivo_TEXTO.txt</msg>
-<arg>./my_files</arg>
-<doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
-<status status="PASS" start="2025-03-04T21:26:49.118524" elapsed="0.001095"/>
+<suite id="s1-s1" name="String" source="C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\string.robot">
+<test id="s1-s1-t1" name="Exemplo 02: Manipulando a String" line="13">
+<kw name="Substituindo valores no texto">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-04T22:44:08.559014" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_texto_linhas.txt"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-03-04T22:44:08.560345" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.559014" elapsed="0.001331"/>
 </kw>
-<status status="PASS" start="2025-03-04T21:26:49.117411" elapsed="0.003215"/>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-03-04T22:44:08.561349" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-04T22:44:08.561349" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<status status="PASS" start="2025-03-04T22:44:08.558007" elapsed="0.004409"/>
 </kw>
-<kw name="Excluir arquivo">
-<kw name="Remove File" owner="OperatingSystem">
-<msg time="2025-03-04T21:26:49.122002" level="INFO" html="true">File '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_TEXTO_COPIA.txt"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_TEXTO_COPIA.txt&lt;/a&gt;' does not exist.</msg>
-<arg>./my_files/${ARQUIVO}</arg>
-<doc>Removes a file with the given path.</doc>
-<status status="PASS" start="2025-03-04T21:26:49.120626" elapsed="0.001376"/>
+<kw name="Replace String" owner="String">
+<msg time="2025-03-04T22:44:08.562416" level="INFO">${NOVO_TEXTO} = Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+</msg>
+<var>${NOVO_TEXTO}</var>
+<arg>string=${TEXTO}</arg>
+<arg>search_for=Minha linha</arg>
+<arg>replace_with=Conteúdo da minha linha</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.562416" elapsed="0.001236"/>
 </kw>
-<arg>arquivo_TEXTO_COPIA.txt</arg>
-<status status="PASS" start="2025-03-04T21:26:49.120626" elapsed="0.001376"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-04T22:44:08.563652" level="INFO">O velho texto era assim:
+Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+
+O novo texto ficou assim:
+Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+</msg>
+<arg>O velho texto era assim:\n${TEXTO}\nO novo texto ficou assim:\n${NOVO_TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.563652" elapsed="0.001067"/>
 </kw>
-<kw name="Excluir arquivo">
-<kw name="Remove File" owner="OperatingSystem">
-<msg time="2025-03-04T21:26:49.123006" level="INFO" html="true">File '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_JSON_COPIA.json"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_JSON_COPIA.json&lt;/a&gt;' does not exist.</msg>
-<arg>./my_files/${ARQUIVO}</arg>
-<doc>Removes a file with the given path.</doc>
-<status status="PASS" start="2025-03-04T21:26:49.123006" elapsed="0.000000"/>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-03-04T22:44:08.564719" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\meu_novo_arquivo.txt"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\meu_novo_arquivo.txt&lt;/a&gt;'.</msg>
+<arg>./my_files/meu_novo_arquivo.txt</arg>
+<arg>${NOVO_TEXTO}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.564719" elapsed="0.001507"/>
 </kw>
-<arg>arquivo_JSON_COPIA.json</arg>
-<status status="PASS" start="2025-03-04T21:26:49.122002" elapsed="0.001004"/>
+<status status="PASS" start="2025-03-04T22:44:08.556639" elapsed="0.009587"/>
 </kw>
-<kw name="Listando arquivos do meu diretório">
-<kw name="List Directory" owner="OperatingSystem">
-<msg time="2025-03-04T21:26:49.124171" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files&lt;/a&gt;'.</msg>
-<msg time="2025-03-04T21:26:49.125566" level="INFO">3 items:
-arquivo_JSON.json
-arquivo_PDF.pdf
-arquivo_TEXTO.txt</msg>
-<arg>./my_files</arg>
-<doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
-<status status="PASS" start="2025-03-04T21:26:49.124171" elapsed="0.001395"/>
+<kw name="Quero tudo minúsculo!">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-04T22:44:08.568356" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_texto_linhas.txt"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-03-04T22:44:08.569358" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.568356" elapsed="0.001002"/>
 </kw>
-<status status="PASS" start="2025-03-04T21:26:49.124171" elapsed="0.001395"/>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-03-04T22:44:08.569358" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-04T22:44:08.570385" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<status status="PASS" start="2025-03-04T22:44:08.567240" elapsed="0.003145"/>
 </kw>
-<status status="PASS" start="2025-03-04T21:26:49.115275" elapsed="0.011384"/>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2025-03-04T22:44:08.571459" level="INFO">${TEXTO} = minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<arg>${TEXTO}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.570385" elapsed="0.001074"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-04T22:44:08.571459" level="INFO">Meu texto todo minúsculo:
+minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+</msg>
+<arg>Meu texto todo minúsculo:\n${TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.571459" elapsed="0.001470"/>
+</kw>
+<status status="PASS" start="2025-03-04T22:44:08.567240" elapsed="0.005689"/>
+</kw>
+<kw name="Quero tudo maiúsculo!">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-04T22:44:08.575168" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_texto_linhas.txt"&gt;C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-03-04T22:44:08.575168" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.574164" elapsed="0.002000"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-03-04T22:44:08.576164" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-04T22:44:08.576164" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<status status="PASS" start="2025-03-04T22:44:08.574164" elapsed="0.002997"/>
+</kw>
+<kw name="Convert To Upper Case" owner="String">
+<msg time="2025-03-04T22:44:08.577161" level="INFO">${TEXTO} = MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+</msg>
+<var>${TEXTO}</var>
+<arg>${TEXTO}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.577161" elapsed="0.001257"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-04T22:44:08.578418" level="INFO">Meu texto todo maiúsculo:
+MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+</msg>
+<arg>Meu texto todo maiúsculo:\n${TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-04T22:44:08.578418" elapsed="0.001024"/>
+</kw>
+<status status="PASS" start="2025-03-04T22:44:08.572929" elapsed="0.006513"/>
+</kw>
+<status status="PASS" start="2025-03-04T22:44:08.555447" elapsed="0.023995"/>
 </test>
-<doc>http://robotframework.org/robotframework/latest/libraries/OperatingSystem.html</doc>
-<status status="PASS" start="2025-03-04T21:26:49.106338" elapsed="0.021318"/>
+<doc>http://robotframework.org/robotframework/latest/libraries/String.html</doc>
+<status status="PASS" start="2025-03-04T22:44:08.541324" elapsed="0.040188"/>
 </suite>
-<status status="PASS" start="2025-03-04T21:26:49.089677" elapsed="0.039354"/>
+<status status="PASS" start="2025-03-04T22:44:08.522626" elapsed="0.061334"/>
 </suite>
 <statistics>
 <total>
@@ -64,9 +209,10 @@ arquivo_TEXTO.txt</msg>
 </tag>
 <suite>
 <stat pass="1" fail="0" skip="0" id="s1" name="Advanced-Robot">Advanced-Robot</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Operating System">Advanced-Robot.Operating System</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="String">Advanced-Robot.String</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-03-04T22:44:08.514370" level="WARN">Error in file 'C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\string.robot' on line 22: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
