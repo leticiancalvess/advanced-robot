@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.8.0 on win32)" generated="2025-03-06T19:48:42.030955" rpa="false" schemaversion="5">
+<suite id="s1" name="Advanced-Robot" source="C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot">
+<suite id="s1-s1" name="Diff Library" source="C:\Users\letic\Documents\Robot Udemy\robot avançado\advanced\advanced-robot\diff_library.robot">
+<test id="s1-s1-t1" name="Test Case 01: Arquivos Diferentes" line="5">
+<kw name="Validar que os arquivos são diferentes">
+<kw name="Diff Files" owner="DiffLibrary">
+<msg time="2025-03-06T19:48:42.064208" level="INFO">file1: ./my_files/arquivo_TEXTO.txt</msg>
+<msg time="2025-03-06T19:48:42.065235" level="INFO">file2: ./my_files/arquivo_texto_linhas.txt</msg>
+<msg time="2025-03-06T19:48:42.065235" level="INFO">C:\Users\letic\AppData\Local\Programs\Python\Python38\lib\site-packages\DiffLibrary\bin\diff\diff.exe --strip-trailing-cr  "./my_files/arquivo_TEXTO.txt" "./my_files/arquivo_texto_linhas.txt"</msg>
+<msg time="2025-03-06T19:48:42.100279" level="INFO">1c1,6
+&lt; Esse curso vai me tornar um ninja em Robot Framework!!!!
+\ No newline at end of file
+---
+&gt; Minha linha 00!
+&gt; Minha linha 01!
+&gt; Minha linha 02!
+&gt; Minha linha 03!
+&gt; Minha linha 04!
+&gt; Minha linha 05!</msg>
+<msg time="2025-03-06T19:48:42.100279" level="FAIL">differences found between ./my_files/arquivo_TEXTO.txt and ./my_files/arquivo_texto_linhas.txt</msg>
+<arg>file1=./my_files/arquivo_TEXTO.txt</arg>
+<arg>file2=./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Diff two text files</doc>
+<status status="FAIL" start="2025-03-06T19:48:42.062922" elapsed="0.037357">differences found between ./my_files/arquivo_TEXTO.txt and ./my_files/arquivo_texto_linhas.txt</status>
+</kw>
+<status status="FAIL" start="2025-03-06T19:48:42.062922" elapsed="0.037357">differences found between ./my_files/arquivo_TEXTO.txt and ./my_files/arquivo_texto_linhas.txt</status>
+</kw>
+<status status="FAIL" start="2025-03-06T19:48:42.060618" elapsed="0.043992">differences found between ./my_files/arquivo_TEXTO.txt and ./my_files/arquivo_texto_linhas.txt</status>
+</test>
+<status status="FAIL" start="2025-03-06T19:48:42.054441" elapsed="0.050169"/>
+</suite>
+<status status="FAIL" start="2025-03-06T19:48:42.030955" elapsed="0.075660"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Advanced-Robot">Advanced-Robot</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Diff Library">Advanced-Robot.Diff Library</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
